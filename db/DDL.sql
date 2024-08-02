@@ -77,7 +77,8 @@ CREATE TABLE telefono (
   codigo_cliente_te INT(10) NULL,
   codigo_oficina_te INT(10) NULL,
   CONSTRAINT PK_telefono PRIMARY KEY (id),
-  CONSTRAINT FK_telefono_cliente FOREIGN KEY (codigo_cliente_te) REFERENCES cliente(id)
+  CONSTRAINT FK_telefono_cliente FOREIGN KEY (codigo_cliente_te) REFERENCES cliente(id),
+  CONSTRAINT FK_telefono_oficina FOREIGN KEY (codigo_oficina_te) REFERENCES oficina(id)
 )ENGINE = InnoDB;
 
 CREATE TABLE pago(
