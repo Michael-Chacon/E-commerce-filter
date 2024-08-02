@@ -25,7 +25,6 @@ CREATE TABLE metodo_pago(
 CREATE TABLE ciudad(
     id INT AUTO_INCREMENT NOT NULL,
     nombre VARCHAR(30) NOT NULL,
-    codigo_region INT(10) NOT NULL,
     CONSTRAINT PK_ciudad PRIMARY KEY (id)
 )ENGINE = InnoDB;
 
