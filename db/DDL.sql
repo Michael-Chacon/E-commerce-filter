@@ -145,7 +145,7 @@ CREATE TABLE product_range (
     CONSTRAINT PK_product_range PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 
-CREATE TABLE state (
+CREATE TABLE status (
     id INT AUTO_INCREMENT NOT NULL,
     state_name VARCHAR(20) NOT NULL,
     CONSTRAINT PK_state PRIMARY KEY (id)
@@ -226,7 +226,7 @@ CREATE TABLE payment (
     CONSTRAINT FK_payment_customer FOREIGN KEY (customer_code_pa) REFERENCES customer(id)
 ) ENGINE = InnoDB;
 
-CREATE TABLE order (
+CREATE TABLE n_order (
     id INT AUTO_INCREMENT NOT NULL,
     order_date DATE NOT NULL,
     expected_date DATE NOT NULL,
@@ -258,7 +258,7 @@ CREATE TABLE order_detail (
     quantity SMALLINT NOT NULL,
     unit_price DOUBLE NULL,
     line_number SMALLINT NULL,
-    PRIMARY KEY (product_id, order_id),
+    PRIMARY KEY (product_id_order, order_id_product),
     CONSTRAINT FK_product_order FOREIGN KEY (product_id_order) REFERENCES product(id),
-CONSTRAINT FK_order_product FOREIGN KEY (order_id_product) REFERENCES order(id)
+    CONSTRAINT FK_order_product FOREIGN KEY (order_id_product) REFERENCES n_order(id)
 ) ENGINE = InnoDB;
