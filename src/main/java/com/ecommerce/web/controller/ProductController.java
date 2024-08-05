@@ -22,7 +22,7 @@ public class ProductController {
         return service.findAll();
     }
 
-    @GetMapping("/{id]")
+    @GetMapping("/{id}")
     public ResponseEntity<Product> view(@PathVariable Long id) {
         Optional<Product> productOpt = service.findById(id);
         if (productOpt.isPresent()) {
@@ -31,13 +31,13 @@ public class ProductController {
         return ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/{id]")
-    public ResponseEntity<Product> create(@RequestBody Product product) {
+    @PostMapping("/{id}")
+    public ResponseEntity<Product> save(@RequestBody Product product) {
         Product saved = service.save(product);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Product> update(@PathVariable Long id, @RequestBody Product product) {
         Optional<Product> productOpt = service.update(id, product);
         if (productOpt.isPresent()) {

@@ -31,7 +31,7 @@ public class NOrderController {
     }
 
     @PostMapping
-    public ResponseEntity<NOrder> create(@RequestBody NOrder nOrder){
+    public ResponseEntity<NOrder> save(@RequestBody NOrder nOrder){
         NOrder nOrderNew = service.save(nOrder);
         return ResponseEntity.status(HttpStatus.CREATED).body(nOrderNew);
     }

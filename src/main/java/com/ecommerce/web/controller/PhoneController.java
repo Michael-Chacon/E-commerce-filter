@@ -32,7 +32,7 @@ public class PhoneController {
     }
 
     @PostMapping("/{id}")
-    public ResponseEntity<Phone> create(@RequestBody Phone phone){
+    public ResponseEntity<Phone> save(@RequestBody Phone phone){
         Phone saved = service.save(phone);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }

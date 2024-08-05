@@ -1,6 +1,5 @@
 package com.ecommerce.domain.service.productrange;
 
-import com.ecommerce.persistence.entity.Position;
 import com.ecommerce.persistence.entity.ProductRange;
 
 import java.util.List;

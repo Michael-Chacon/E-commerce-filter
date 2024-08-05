@@ -31,7 +31,7 @@ public class StatusController {
     }
 
     @PostMapping("/{id}")
-    public ResponseEntity<Status> create(@RequestBody Status status) {
+    public ResponseEntity<Status> save(@RequestBody Status status) {
         Status saved = service.save(status);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }

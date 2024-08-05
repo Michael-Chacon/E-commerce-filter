@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/nOrders")
+@RequestMapping("/api/orderDetails")
 public class OrderDetailController {
     @Autowired
     private IOrderDetail service;
@@ -32,7 +32,7 @@ public class OrderDetailController {
     }
 
     @PostMapping("/{id}")
-    public ResponseEntity<OrderDetail> create(@RequestBody OrderDetail orderDetail) {
+    public ResponseEntity<OrderDetail> save(@RequestBody OrderDetail orderDetail) {
         OrderDetail orderDetailNew = service.save(orderDetail);
         return ResponseEntity.status(HttpStatus.CREATED).body(orderDetailNew);
     }

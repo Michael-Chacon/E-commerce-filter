@@ -40,7 +40,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, Integer stockQuantity, Integer salePrice, Integer supplierPrice, String productDescription, String dimensions) {
+    public Product(String name, Integer stockQuantity, Integer salePrice, String productDescription, String dimensions) {
         this.name = name;
         this.stockQuantity = stockQuantity;
         this.salePrice = salePrice;
@@ -112,6 +112,7 @@ public class Product {
     public void setRangeCode(ProductRange rangeCode) {
         this.rangeCode = rangeCode;
     }
+
 
 //    public List<ProductRange> getProductRanges() {
 //        return productRanges;

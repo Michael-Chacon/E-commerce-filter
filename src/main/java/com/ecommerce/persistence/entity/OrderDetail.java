@@ -32,7 +32,7 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(Integer quantity, Integer unitPrice, Integer lineNumber) {
+    public OrderDetail(Integer quantity, Integer unitPrice) {
         this.quantity = quantity;
         this.unitPrice = unitPrice;
 //        this.lineNumber = lineNumber;
