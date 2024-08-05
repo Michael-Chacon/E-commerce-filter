@@ -31,7 +31,7 @@ public class ProductRangeController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductRange> save(@PathVariable Long id, @RequestBody ProductRange productRange) {
+    public ResponseEntity<ProductRange> save(@RequestBody ProductRange productRange) {
         ProductRange productRangeNew = service.save(productRange);
         return ResponseEntity.status(HttpStatus.CREATED).body(productRangeNew);
     }
