@@ -8,5 +8,4 @@ import org.springframework.web.bind.annotation.RestController;
 public class PositionController {
     @Autowired
     private IPosition service;
-
 }

@@ -244,7 +244,7 @@ CREATE TABLE product (
     name VARCHAR(70) NOT NULL,
     stock_quantity TINYINT NOT NULL,
     sale_price DOUBLE NOT NULL,
-    supplier_price DOUBLE NOT NULL,
+--     supplier_price DOUBLE NOT NULL,
     product_description TEXT NULL,
     range_code INT(10) NOT NULL,
     dimensions VARCHAR(255) NULL,
@@ -257,7 +257,7 @@ CREATE TABLE order_detail (
     order_id_product INT NOT NULL,
     quantity SMALLINT NOT NULL,
     unit_price DOUBLE NULL,
-    line_number SMALLINT NULL,
+--     line_number SMALLINT NULL,
     PRIMARY KEY (product_id_order, order_id_product),
     CONSTRAINT FK_product_order FOREIGN KEY (product_id_order) REFERENCES product(id),
     CONSTRAINT FK_order_product FOREIGN KEY (order_id_product) REFERENCES n_order(id)
