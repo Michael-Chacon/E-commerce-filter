@@ -9,3 +9,4 @@ public class PositionController {
     @Autowired
     private IPosition service;
 }
+

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -- ESPAÑOL
 
 DROP DATABASE IF EXISTS ecommerce;
