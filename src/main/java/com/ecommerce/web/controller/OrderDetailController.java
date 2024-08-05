@@ -31,7 +31,7 @@ public class OrderDetailController {
         return ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/{id}")
+    @PostMapping
     public ResponseEntity<OrderDetail> save(@RequestBody OrderDetail orderDetail) {
         OrderDetail orderDetailNew = service.save(orderDetail);
         return ResponseEntity.status(HttpStatus.CREATED).body(orderDetailNew);

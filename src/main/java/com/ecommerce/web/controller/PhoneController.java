@@ -31,7 +31,7 @@ public class PhoneController {
         return ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/{id}")
+    @PostMapping
     public ResponseEntity<Phone> save(@RequestBody Phone phone){
         Phone saved = service.save(phone);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);

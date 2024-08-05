@@ -30,7 +30,7 @@ public class ProductRangeController {
         return ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/{id}")
+    @PostMapping
     public ResponseEntity<ProductRange> save(@PathVariable Long id, @RequestBody ProductRange productRange) {
         ProductRange productRangeNew = service.save(productRange);
         return ResponseEntity.status(HttpStatus.CREATED).body(productRangeNew);

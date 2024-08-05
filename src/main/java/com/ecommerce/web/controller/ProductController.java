@@ -31,7 +31,7 @@ public class ProductController {
         return ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/{id}")
+    @PostMapping
     public ResponseEntity<Product> save(@RequestBody Product product) {
         Product saved = service.save(product);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);

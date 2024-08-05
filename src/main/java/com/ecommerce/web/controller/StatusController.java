@@ -30,7 +30,7 @@ public class StatusController {
         return ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/{id}")
+    @PostMapping
     public ResponseEntity<Status> save(@RequestBody Status status) {
         Status saved = service.save(status);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
