@@ -43,7 +43,7 @@ public class ProductImpl implements IProduct{
             productItem.setName(product.getName());
             productItem.setStockQuantity(product.getStockQuantity());
             productItem.setSalePrice(product.getSalePrice());
-            productItem.setSupplierPrice(product.getSupplierPrice());
+//            productItem.setSupplierPrice(product.getSupplierPrice());
             productItem.setProductDescription(product.getProductDescription());
             productItem.setDimensions(product.getDimensions());
             productItem.setRangeCode(product.getRangeCode());

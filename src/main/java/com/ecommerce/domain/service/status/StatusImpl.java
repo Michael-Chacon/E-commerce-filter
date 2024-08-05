@@ -38,7 +38,7 @@ public class StatusImpl implements IStatus {
         Optional<Status> statusOpt = repository.findById(id);
         if (statusOpt.isPresent()) {
             Status statusItem = statusOpt.orElseThrow();
-            statusItem.setStateName(status.getStateName());
+            statusItem.setStatusName(status.getStatusName());
             return Optional.of(repository.save(statusItem));
         }
         return statusOpt;

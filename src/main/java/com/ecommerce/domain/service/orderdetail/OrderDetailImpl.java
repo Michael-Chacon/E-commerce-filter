@@ -42,7 +42,7 @@ public class OrderDetailImpl implements IOrderDetail {
             orderDetailImpl.setOrderIdProduct(orderDetail.getOrderIdProduct());
             orderDetailImpl.setProductIdOrder(orderDetail.getProductIdOrder());
             orderDetailImpl.setQuantity(orderDetail.getQuantity());
-            orderDetailImpl.setLineNumber(orderDetail.getLineNumber());
+//            orderDetailImpl.setLineNumber(orderDetail.getLineNumber());
             orderDetailImpl.setUnitPrice(orderDetail.getUnitPrice());
             return Optional.of(repository.save(orderDetailImpl));
         }

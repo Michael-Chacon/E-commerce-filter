@@ -51,11 +51,11 @@ public class Phone {
         this.customerCodePh = customerCodePh;
     }
 
-    public Customer getOfficeCodePh() {
+    public Office getOfficeCodePh() {
         return officeCodePh;
     }
 
-    public void setOfficeCodePh(Customer officeCodePh) {
+    public void setOfficeCodePh(Office officeCodePh) {
         this.officeCodePh = officeCodePh;
     }
 

@@ -41,6 +41,7 @@ public class NOrderImpl implements INOrder {
             nOrderImpl.setOrderDate(nOrder.getOrderDate());
             nOrderImpl.setDeliveryDate(nOrder.getDeliveryDate());
             nOrderImpl.setExpectedDate(nOrder.getExpectedDate());
+            nOrderImpl.setComment(nOrder.getComment());
 //            nOrderImpl.setCustomerCodeOr(nOrder.getCustomerCodeOr());
             nOrderImpl.setStatusCodeOr(nOrder.getStatusCodeOr());
             return Optional.of(repository.save(nOrderImpl));
