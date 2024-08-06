@@ -21,14 +21,14 @@ public class Address {
     @JoinColumn(name = "city_code_d", nullable = false)
     private City city;
 
-    @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)
-    private Set<Office> offices;
+//    @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)
+//    private Set<Office> offices;
 
     @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)
     private Set<Customer> customers;
 
     public Address() {
-        this.offices = new HashSet<>();
+ //       this.offices = new HashSet<>();
         this.customers = new HashSet<>();
     }
 
@@ -68,14 +68,6 @@ public class Address {
 
     public void setCity(City city) {
         this.city = city;
-    }
-
-    public Set<Office> getOffices() {
-        return offices;
-    }
-
-    public void setOffices(Set<Office> offices) {
-        this.offices = offices;
     }
 
     public Set<Customer> getCustomers() {

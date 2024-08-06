@@ -41,7 +41,7 @@ public class AddressImpl implements IAddress {
             newAddress.setAddressLine1(address.getAddressLine1());
             newAddress.setAddressLine2(address.getAddressLine2());
             newAddress.setCity(address.getCity());
-            newAddress.setOffices(address.getOffices());
+//            newAddress.setOffices(address.getOffices());
             newAddress.setCustomers(address.getCustomers());
             return Optional.of(repository.save(newAddress));
         }
