@@ -14,14 +14,14 @@ public class City {
     @Column(name = "name", length = 30, nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
-    private Set<Address> addresses;
+//    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+//   private Set<Address> addresses;
 
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
     private Set<Customer> customers;
 
     public City() {
-        this.addresses = new HashSet<>();
+//      this.addresses = new HashSet<>();
         this.customers = new HashSet<>();
     }
 
@@ -46,13 +46,6 @@ public class City {
         this.name = name;
     }
 
-    public Set<Address> getAddresses() {
-        return addresses;
-    }
-
-    public void setAddresses(Set<Address> addresses) {
-        this.addresses = addresses;
-    }
 
     public Set<Customer> getCustomers() {
         return customers;
