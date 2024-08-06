@@ -40,7 +40,7 @@ public class CityImpl implements ICity {
             City newCity = getCity.orElseThrow();
             newCity.setName(city.getName());
 //           newCity.setAddresses(city.getAddresses());
-            newCity.setCustomers(city.getCustomers());
+//            newCity.setCustomers(city.getCustomers());
             return Optional.of(repository.save(newCity));
         }
         return getCity;

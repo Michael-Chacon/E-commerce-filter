@@ -27,7 +27,7 @@ public class Customer {
     @JoinColumn(name = "city_code_c", nullable = false)
     private City city;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_code_c", nullable = false)
     private Address address;
 

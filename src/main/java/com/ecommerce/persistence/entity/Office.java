@@ -55,7 +55,7 @@ public class Office {
     public String toString() {
         return "Office{" +
                 "id=" + id +
-                ", address=" + address +
+//                ", address=" + address +
                 '}';
     }
 }

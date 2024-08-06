@@ -24,12 +24,12 @@ public class Address {
 //    @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)
 //    private Set<Office> offices;
 
-    @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)
-    private Set<Customer> customers;
+//    @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)
+//    private Set<Customer> customers;
 
     public Address() {
  //       this.offices = new HashSet<>();
-        this.customers = new HashSet<>();
+//        this.customers = new HashSet<>();
     }
 
     public Address(String addressLine1, String addressLine2) {
@@ -70,13 +70,13 @@ public class Address {
         this.city = city;
     }
 
-    public Set<Customer> getCustomers() {
-        return customers;
-    }
-
-    public void setCustomers(Set<Customer> customers) {
-        this.customers = customers;
-    }
+//    public Set<Customer> getCustomers() {
+//        return customers;
+//    }
+//
+//    public void setCustomers(Set<Customer> customers) {
+//        this.customers = customers;
+//    }
 
     @Override
     public String toString() {
@@ -84,7 +84,7 @@ public class Address {
                 "id=" + id +
                 ", addressLine1='" + addressLine1 + '\'' +
                 ", addressLine2='" + addressLine2 + '\'' +
-                ", city=" + city +
+//                ", city=" + city +
                 '}';
     }
 }

@@ -1,8 +1,7 @@
 package com.ecommerce.persistence.entity;
 
 import jakarta.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+
 
 @Entity
 @Table(name = "city")
@@ -17,12 +16,12 @@ public class City {
 //    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
 //   private Set<Address> addresses;
 
-    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
-    private Set<Customer> customers;
+//    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+//    private Set<Customer> customers;
 
     public City() {
 //      this.addresses = new HashSet<>();
-        this.customers = new HashSet<>();
+//        this.customers = new HashSet<>();
     }
 
     public City(String name) {
@@ -47,13 +46,13 @@ public class City {
     }
 
 
-    public Set<Customer> getCustomers() {
-        return customers;
-    }
-
-    public void setCustomers(Set<Customer> customers) {
-        this.customers = customers;
-    }
+//    public Set<Customer> getCustomers() {
+//        return customers;
+//    }
+//
+//    public void setCustomers(Set<Customer> customers) {
+//        this.customers = customers;
+//    }
 
     @Override
     public String toString() {

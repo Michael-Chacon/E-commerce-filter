@@ -27,11 +27,11 @@ public class Employee {
     @JoinColumn(name = "office_code")
         private Office office;
 
-    @OneToMany(mappedBy = "salesRep", cascade = CascadeType.ALL)
-    private Set<Customer> customers;
+//    @OneToMany(mappedBy = "salesRep", cascade = CascadeType.ALL)
+//    private Set<Customer> customers;
 
     public Employee() {
-        this.customers = new HashSet<>();
+//        this.customers = new HashSet<>();
     }
 
     public Employee(String firstName, String lastName1, String lastName2, String email) {
@@ -90,13 +90,13 @@ public class Employee {
         this.office = office;
     }
 
-    public Set<Customer> getCustomers() {
-        return customers;
-    }
-
-    public void setCustomers(Set<Customer> customers) {
-        this.customers = customers;
-    }
+//    public Set<Customer> getCustomers() {
+//        return customers;
+//    }
+//
+//    public void setCustomers(Set<Customer> customers) {
+//        this.customers = customers;
+//    }
 
     public String toString() {
         return "Employee{" +
@@ -105,7 +105,7 @@ public class Employee {
                 ", lastName1='" + lastName1 + '\'' +
                 ", lastName2='" + lastName2 + '\'' +
                 ", email='" + email + '\'' +
-                ", office=" + office +
+//                ", office=" + office +
                 '}';
     }
 
