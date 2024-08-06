@@ -39,7 +39,7 @@ public class OfficeImpl implements IOffice {
         if (getOffice.isPresent()) {
             Office newOffice = getOffice.orElseThrow();
             newOffice.setAddress(office.getAddress());
-            newOffice.setEmployees(office.getEmployees());
+//            newOffice.setEmployees(office.getEmployees());
             return Optional.of(repository.save(newOffice));
         }
         return getOffice;

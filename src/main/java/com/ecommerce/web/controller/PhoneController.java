@@ -48,8 +48,7 @@ public class PhoneController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Phone> delete(@PathVariable Long id) {
-        Phone phone = new Phone();
-        phone.setId(id);
+        System.out.println(id + "--------------------------------");
         Optional<Phone> phoneOpt = service.delete(id);
         if(phoneOpt.isPresent()){
             return ResponseEntity.ok(phoneOpt.orElseThrow());

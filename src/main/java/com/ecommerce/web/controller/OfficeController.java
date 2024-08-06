@@ -48,6 +48,7 @@ public class OfficeController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Office> delete(@PathVariable Long id) {
+        System.out.println(id + "--------------------------------");
         Optional<Office> office = service.delete(id);
         if (office.isPresent()) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();

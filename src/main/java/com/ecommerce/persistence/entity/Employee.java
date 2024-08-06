@@ -25,7 +25,7 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn(name = "office_code")
-    private Office office;
+        private Office office;
 
     @OneToMany(mappedBy = "salesRep", cascade = CascadeType.ALL)
     private Set<Customer> customers;

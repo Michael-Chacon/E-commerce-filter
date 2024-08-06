@@ -15,11 +15,11 @@ public class Office {
     @JoinColumn(name = "address_code_o", nullable = false)
     private Address address;
 
-    @OneToMany(mappedBy = "office", cascade = CascadeType.ALL)
-    private Set<Employee> employees;
+//    @OneToMany(mappedBy = "office", cascade = CascadeType.ALL)
+//    private Set<Employee> employees;
 
     public Office() {
-        this.employees = new HashSet<>();
+//        this.employees = new HashSet<>();
     }
 
     public Office(Address address) {
@@ -43,13 +43,13 @@ public class Office {
         this.address = address;
     }
 
-    public Set<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
-    }
+//    public Set<Employee> getEmployees() {
+//        return employees;
+//    }
+//
+//    public void setEmployees(Set<Employee> employees) {
+//        this.employees = employees;
+//    }
 
     @Override
     public String toString() {
