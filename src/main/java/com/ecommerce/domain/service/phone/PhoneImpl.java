@@ -24,7 +24,7 @@ public class PhoneImpl implements IPhone{
     @Transactional(readOnly = true)
     @Override
     public Optional<Phone> findById(Long id) {
-        return repository.findById(id);
+        return repository.findByOffice(id);
     }
 
     @Transactional
