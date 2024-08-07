@@ -15,8 +15,8 @@ public class Status {
     @Column(name = "status_name")
     private String statusName;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "statusCodeOr")
-    private List<NOrder> nOrders;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "statusCodeOr")
+//    private List<NOrder> nOrders;
 
     public Status() {
     }
@@ -41,20 +41,20 @@ public class Status {
         this.statusName = statusName;
     }
 
-    public List<NOrder> getnOrders() {
-        return nOrders;
-    }
-
-    public void setnOrders(List<NOrder> nOrders) {
-        this.nOrders = nOrders;
-    }
+//    public List<NOrder> getnOrders() {
+//        return nOrders;
+//    }
+//
+//    public void setnOrders(List<NOrder> nOrders) {
+//        this.nOrders = nOrders;
+//    }
 
     @Override
     public String toString() {
         return "Status{" +
                 "id=" + id +
                 ", statusName='" + statusName + '\'' +
-                ", nOrders=" + nOrders +
+//                ", nOrders=" + nOrders +
                 '}';
     }
 }

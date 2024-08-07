@@ -1,5 +1,6 @@
 package com.ecommerce.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -14,26 +15,29 @@ public class NOrder {
     private Long id;
 
     @Column(name = "order_date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "UTC")
     private Date orderDate;
 
     @Column(name = "expected_date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "UTC")
     private Date expectedDate;
 
     @Column(name = "delivery_date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "UTC")
     private Date deliveryDate;
 
     private String comment;
 
-//    @ManyToOne
-//    @JoinColumn(name = "customer_code_or")
-//    private Customer customerCodeOr;
+    @ManyToOne
+    @JoinColumn(name = "customer_code_or")
+    private Customer customerCodeOr;
 
     @ManyToOne
     @JoinColumn(name = "status_code_or")
     private Status statusCodeOr;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderIdProduct")
-    private List<OrderDetail> orderDetails;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderIdProduct")
+//    private List<OrderDetail> orderDetails;
 
     public NOrder() {
     }
@@ -45,6 +49,13 @@ public class NOrder {
         this.orderDate = orderDate;
     }
 
+    public Customer getCustomerCodeOr() {
+        return customerCodeOr;
+    }
+
+    public void setCustomerCodeOr(Customer customerCodeOr) {
+        this.customerCodeOr = customerCodeOr;
+    }
 
     public Long getId() {
         return id;
@@ -86,13 +97,13 @@ public class NOrder {
         this.statusCodeOr = statusCodeOr;
     }
 
-    public List<OrderDetail> getOrderDetails() {
-        return orderDetails;
-    }
-
-    public void setOrderDetails(List<OrderDetail> orderDetails) {
-        this.orderDetails = orderDetails;
-    }
+//    public List<OrderDetail> getOrderDetails() {
+//        return orderDetails;
+//    }
+//
+//    public void setOrderDetails(List<OrderDetail> orderDetails) {
+//        this.orderDetails = orderDetails;
+//    }
 
     public String getComment() {
         return comment;
@@ -110,8 +121,8 @@ public class NOrder {
                 ", expectedDate=" + expectedDate +
                 ", deliveryDate=" + deliveryDate +
                 ", comment='" + comment + '\'' +
-                ", statusCodeOr=" + statusCodeOr +
-                ", orderDetails=" + orderDetails +
+//                ", statusCodeOr=" + statusCodeOr +
+//                ", orderDetails=" + orderDetails +
                 '}';
     }
 }
