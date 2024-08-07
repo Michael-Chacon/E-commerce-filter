@@ -1,5 +1,6 @@
 package com.ecommerce.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import java.util.Date;
 
@@ -11,16 +12,17 @@ public class Payment {
     private Long id;
 
     @Column(name = "payment_date", nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "UTC")
     private Date paymentDate;
 
     @Column(name = "total", nullable = false)
     private Double total;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne
     @JoinColumn(name = "payment_method_code")
         private PaymentMethod paymentMethod;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne
     @JoinColumn(name = "customer_code_pa")
     private Customer customer;
 
