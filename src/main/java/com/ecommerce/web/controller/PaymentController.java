@@ -54,4 +54,25 @@ public class PaymentController {
         }
         return ResponseEntity.notFound().build();
     }
+
+
+    //PAGO POR CLIENTE
+    @GetMapping("/by-customer/{customerId}")
+    public ResponseEntity<List<Object[]>> findPaymentsByCustomer(@PathVariable Long customerId) {
+        List<Object[]> payments = service.findPaymentsByCustomer(customerId);
+        if (payments.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(payments);
+    }
+
+    //PAGO POR METODO DE PAGO
+    @GetMapping("/by-method/{paymentMethodId}")
+    public ResponseEntity<List<Object[]>> findPaymentsByPaymentMethod(@PathVariable Long paymentMethodId) {
+        List<Object[]> payments = service.findPaymentsByPaymentMethod(paymentMethodId);
+        if (payments.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(payments);
+    }
 }

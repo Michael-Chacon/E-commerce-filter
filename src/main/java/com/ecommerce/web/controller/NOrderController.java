@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+//import java.sql.Date; 
 import java.util.List;
 import java.util.Optional;
 
@@ -55,4 +56,27 @@ public class NOrderController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    // buscar por estado
+    @GetMapping("/by-status/{statusId}")
+    public ResponseEntity<List<Object[]>> findByStatus(@PathVariable Long statusId) {
+        List<Object[]> orders = service.findByStatus(statusId);
+        if (orders.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(orders);
+    }
+
+    //buscar pedidos por rango de fecha
+
+    //@GetMapping("/by-date-range")
+    //public ResponseEntity<List<Object[]>> getOrdersByOrderDateRange(
+    //        @RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
+    //        @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) {
+    //    List<Object[]> orders = service.findOrdersByOrderDateRange(startDate, endDate);
+    //    if (orders.isEmpty()) {
+    //        return ResponseEntity.notFound().build();
+    //    }
+    //    return ResponseEntity.ok(orders);
+    //}
 }

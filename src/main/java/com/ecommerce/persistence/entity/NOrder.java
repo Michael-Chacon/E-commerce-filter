@@ -2,8 +2,9 @@ package com.ecommerce.persistence.entity;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.sql.Date; 
 import java.util.List;
+
 
 @Entity
 @Table(name = "n_order")
@@ -24,9 +25,9 @@ public class NOrder {
 
     private String comment;
 
-//    @ManyToOne
-//    @JoinColumn(name = "customer_code_or")
-//    private Customer customerCodeOr;
+    @ManyToOne
+    @JoinColumn(name = "customer_code_or")
+    private Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "status_code_or")

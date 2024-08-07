@@ -10,4 +10,10 @@ public interface ICustomer {
     Customer save(Customer customer);
     Optional<Customer> update(Long id, Customer customer);
     Optional<Customer> delete(Long id);
+
+    // Método para obtener clientes por ciudad
+    List<Object[]> findByCity(Long cityId);
+
+    // Método para obtener clientes por ID junto con el estado de sus pedidos
+    List<Object[]> findCustomerByIdWithStatus(Long id);
 }

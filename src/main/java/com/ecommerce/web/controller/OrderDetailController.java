@@ -3,7 +3,6 @@ package com.ecommerce.web.controller;
 import com.ecommerce.domain.service.orderdetail.IOrderDetail;
 import com.ecommerce.persistence.entity.OrderDetail;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.autoconfigure.observation.ObservationProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

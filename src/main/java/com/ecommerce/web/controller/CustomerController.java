@@ -54,4 +54,24 @@ public class CustomerController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    //buscar por ciudad
+    @GetMapping("/by-city/{cityId}")
+    public ResponseEntity<List<Object[]>> findByCity(@PathVariable Long cityId) {
+        List<Object[]> customers = service.findByCity(cityId);
+        if (customers.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(customers);
+    }
+
+    //buscar por pedido pendiente
+    @GetMapping("/by-status/{id}")
+    public ResponseEntity<List<Object[]>> findCustomerByIdWithStatus(@PathVariable Long id) {
+        List<Object[]> customerData = service.findCustomerByIdWithStatus(id);
+        if (customerData.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(customerData);
+    }
 }
