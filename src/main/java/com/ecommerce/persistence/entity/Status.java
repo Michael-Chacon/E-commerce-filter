@@ -15,9 +15,6 @@ public class Status {
     @Column(name = "status_name")
     private String statusName;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "statusCodeOr")
-//    private List<NOrder> nOrders;
-
     public Status() {
     }
 
