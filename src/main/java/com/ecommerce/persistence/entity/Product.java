@@ -31,7 +31,7 @@ public class Product {
 
 //    Llaves foraneas
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "range_code")
 //    @JsonBackReference
     private ProductRange rangeCode;
