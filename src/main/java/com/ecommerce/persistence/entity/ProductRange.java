@@ -1,7 +1,9 @@
 package com.ecommerce.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,10 +17,13 @@ public class ProductRange {
     private String description;
     private String image;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rangeCode")
-    private List<Product> products;
+//    @OneToMany(mappedBy = "rangeCode", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonManagedReference
+//    private List<Product> products = new ArrayList<>();
+
 
     public ProductRange() {
+//        this.products = new ArrayList<>();
     }
 
     public ProductRange(String image, String description, String name) {
@@ -59,13 +64,13 @@ public class ProductRange {
         this.image = image;
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
+//    public List<Product> getProducts() {
+//        return products;
+//    }
+//
+//    public void setProducts(List<Product> products) {
+//        this.products = products;
+//    }
 
     @Override
     public String toString() {
@@ -74,7 +79,7 @@ public class ProductRange {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", image='" + image + '\'' +
-                ", products=" + products +
+//                ", products=" + products +
                 '}';
     }
 }

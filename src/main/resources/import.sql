@@ -1,4 +1,20 @@
--- Insertando datos de prueba para la tabla City
 insert into city (name) values ('New York');
 insert into city (name) values ('Los Angeles');
 insert into city (name) values ('Chicago');
+INSERT INTO payment_method (id, method_name) VALUES (1, 'Credit Card');
+INSERT INTO payment_method (id, method_name) VALUES (2, 'PayPal');
+INSERT INTO payment_method (id, method_name) VALUES (3, 'Bank Transfer');
+INSERT INTO payment_method (id, method_name) VALUES (4, 'Cash');
+INSERT INTO payment_method (id, method_name) VALUES (5, 'Mobile Payment');
+INSERT INTO status (id, status_name) VALUES (1, 'Pendiente');
+INSERT INTO status (id, status_name) VALUES (2, 'En proceso');
+INSERT INTO status (id, status_name) VALUES (3, 'Enviado');
+INSERT INTO status (id, status_name) VALUES (4, 'Entregado');
+INSERT INTO status (id, status_name) VALUES (5, 'Cancelado');
+INSERT INTO product_ranges (id, name, description, image) VALUES (1, 'Electrónica', 'Productos electrónicos y gadgets', 'imagen_electronica.jpg');
+INSERT INTO product_ranges (id, name, description, image) VALUES (2, 'Ropa', 'Ropa y accesorios de moda', 'imagen_ropa.jpg');
+INSERT INTO product_ranges (id, name, description, image) VALUES (3, 'Hogar', 'Productos para el hogar y la cocina', 'imagen_hogar.jpg');
+INSERT INTO product_ranges (id, name, description, image) VALUES (4, 'Deportes', 'Artículos deportivos y equipos', 'imagen_deportes.jpg');
+INSERT INTO product_ranges (id, name, description, image) VALUES (5, 'Libros', 'Libros y material de lectura', 'imagen_libros.jpg');
+INSERT INTO products (id, name, stock_quantity, sale_price, product_description, range_code, dimensions) VALUES(1, 'Producto A', 10, 200.00, 'Descripción del producto A', 1, '30x20x10'),(2, 'Producto B', 20, 150.00, 'Descripción del producto B', 2, '25x15x8'),(3, 'Producto C', 30, 100.00, 'Descripción del producto C', 3, '20x10x5');
+

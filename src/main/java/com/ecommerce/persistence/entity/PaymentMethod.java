@@ -11,14 +11,14 @@ public class PaymentMethod {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "method_name", length = 15)
+    @Column(name = "method_name", length = 50)
     private String methodName;
 
-    @OneToMany(mappedBy = "paymentMethod", cascade = CascadeType.ALL)
-    private Set<Payment> payments;
+//    @OneToMany(mappedBy = "paymentMethod", cascade = CascadeType.ALL)
+//    private Set<Payment> payments;
 
     public PaymentMethod() {
-        this.payments = new HashSet<>();
+//        this.payments = new HashSet<>();
     }
 
     public PaymentMethod(String methodName) {
@@ -42,13 +42,13 @@ public class PaymentMethod {
         this.methodName = methodName;
     }
 
-    public Set<Payment> getPayments() {
-        return payments;
-    }
-
-    public void setPayments(Set<Payment> payments) {
-        this.payments = payments;
-    }
+//    public Set<Payment> getPayments() {
+//        return payments;
+//    }
+//
+//    public void setPayments(Set<Payment> payments) {
+//        this.payments = payments;
+//    }
 
     @Override
     public String toString() {

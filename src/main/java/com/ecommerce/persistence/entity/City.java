@@ -25,7 +25,6 @@ public class City {
     }
 
     public City(String name) {
-        this();
         this.name = name;
     }
 

@@ -39,7 +39,7 @@ public class PaymentMethodImpl implements IPaymentMethod {
         if (getPaymentMethod.isPresent()) {
             PaymentMethod newPaymentMethod = getPaymentMethod.orElseThrow();
             newPaymentMethod.setMethodName(paymentMethod.getMethodName());
-            newPaymentMethod.setPayments(paymentMethod.getPayments());
+//            newPaymentMethod.setPayments(paymentMethod.getPayments());
             return Optional.of(repository.save(newPaymentMethod));
         }
         return getPaymentMethod;

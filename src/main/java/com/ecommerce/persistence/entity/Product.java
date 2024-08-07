@@ -1,5 +1,6 @@
 package com.ecommerce.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -30,9 +31,11 @@ public class Product {
 
 //    Llaves foraneas
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "range_code")
+//    @JsonBackReference
     private ProductRange rangeCode;
+
 
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productIdOrder")
 //    private List<ProductRange> productRanges;

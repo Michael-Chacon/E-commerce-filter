@@ -24,22 +24,22 @@ public class Customer {
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "city_code_c", nullable = false)
+    @JoinColumn(name = "city_code_c")
     private City city;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_code_c", nullable = false)
+    @JoinColumn(name = "address_code_c")
     private Address address;
 
     @ManyToOne
     @JoinColumn(name = "sales_rep_employee_code")
     private Employee salesRep;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private Set<Payment> payments;
+//    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+//    private Set<Payment> payments;
 
     public Customer() {
-        this.payments = new HashSet<>();
+//        this.payments = new HashSet<>();
     }
 
     public Customer(String firstName, String lastName1, String lastName2, String email) {
@@ -114,13 +114,13 @@ public class Customer {
         this.salesRep = salesRep;
     }
 
-    public Set<Payment> getPayments() {
-        return payments;
-    }
-
-    public void setPayments(Set<Payment> payments) {
-        this.payments = payments;
-    }
+//    public Set<Payment> getPayments() {
+//        return payments;
+//    }
+//
+//    public void setPayments(Set<Payment> payments) {
+//        this.payments = payments;
+//    }
 
     @Override
     public String toString() {
@@ -131,8 +131,8 @@ public class Customer {
                 ", lastName2='" + lastName2 + '\'' +
                 ", email='" + email + '\'' +
                 ", city=" + city +
-                ", address=" + address +
-                ", salesRep=" + salesRep +
+//                ", address=" + address +
+//                ", salesRep=" + salesRep +
                 '}';
     }
 }

@@ -16,15 +16,17 @@ public class Payment {
     @Column(name = "total", nullable = false)
     private Double total;
 
-    @ManyToOne
-    @JoinColumn(name = "payment_method_code", nullable = false)
-    private PaymentMethod paymentMethod;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "payment_method_code")
+        private PaymentMethod paymentMethod;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_code_pa", nullable = false)
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "customer_code_pa")
     private Customer customer;
 
-    public Payment() {}
+    public Payment() {
+        System.out.println(paymentDate);
+    }
 
     public Payment(Date paymentDate, Double total) {
         this.paymentDate = paymentDate;
@@ -77,8 +79,8 @@ public class Payment {
                 "id=" + id +
                 ", paymentDate=" + paymentDate +
                 ", total=" + total +
-                ", paymentMethod=" + paymentMethod +
-                ", customer=" + customer +
+//                ", paymentMethod=" + paymentMethod +
+//                ", customer=" + customer +
                 '}';
     }
 }

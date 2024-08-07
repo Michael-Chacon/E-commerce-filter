@@ -11,14 +11,14 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "address_line1", length = 50, nullable = false)
+    @Column(name = "address_line1", length = 50)
     private String addressLine1;
 
     @Column(name = "address_line2", length = 50)
     private String addressLine2;
 
     @ManyToOne
-    @JoinColumn(name = "city_code_d", nullable = false)
+    @JoinColumn(name = "city_code_d")
     private City city;
 
 //    @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)
