@@ -54,4 +54,18 @@ public class PaymentImpl implements IPayment {
         getPayment.ifPresent(repository::delete);
         return getPayment;
     }
+
+    //PAGO POR CLIENTE
+    @Transactional(readOnly = true)
+    @Override
+    public List<Object[]> findPaymentsByCustomer(Long id) {
+        return repository.findPaymentsByCustomer(id);
+    }
+
+    //PAGO POR METODO DE PAGO
+    @Transactional(readOnly = true)
+    @Override
+    public List<Object[]> findPaymentsByPaymentMethod(Long id) {
+        return repository.findPaymentsByPaymentMethod(id);
+    }
 }
