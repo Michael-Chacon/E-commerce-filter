@@ -57,4 +57,17 @@ public class CustomerImpl implements ICustomer {
         getCustomer.ifPresent(customer -> repository.delete(customer));
         return getCustomer;
     }
+    // buscar por ciudad
+    @Transactional(readOnly = true)
+    @Override
+    public List<Object[]> findByCity(Long cityId) {
+        return repository.findCustomerDataByCityId(cityId);
+    }
+
+    // buscar por pedidos pendientes
+    @Transactional(readOnly = true)
+    @Override
+    public List<Object[]> findCustomersWithPendingOrders() {
+        return repository.findCustomersWithPendingOrders();
+    }
 }
