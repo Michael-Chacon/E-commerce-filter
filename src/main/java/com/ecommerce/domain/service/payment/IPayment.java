@@ -10,4 +10,9 @@ public interface IPayment {
     Payment save(Payment payment);
     Optional<Payment> update(Long id, Payment payment);
     Optional<Payment> delete(Long id);
+    //pago por cliente
+    List<Object[]> findPaymentsByCustomer(Long id);
+
+    //pago por metodo de pago
+    List<Object[]> findPaymentsByPaymentMethod(Long id);
 }
