@@ -3,10 +3,12 @@ package com.ecommerce.web.controller;
 import com.ecommerce.domain.service.norder.INOrder;
 import com.ecommerce.persistence.entity.NOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,5 +56,30 @@ public class NOrderController {
             return ResponseEntity.ok(orderOpt.orElseThrow());
         }
         return ResponseEntity.notFound().build();
+    }
+
+    // buscar por estado
+    @GetMapping("/by-status/{statusId}")
+    public ResponseEntity<List<Object[]>> findByStatus(@PathVariable Long statusId) {
+        List<Object[]> orders = service.findByStatus(statusId);
+        if (orders.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(orders);
+    }
+
+    //buscar pedidos por rango de fecha
+    //http://localhost:8080/api/nOrders/by-range?startDate=2024-08-01&endDate=2024-08-02
+    @GetMapping("/by-range")
+    public ResponseEntity<List<Object[]>> getOrdersByOrderDateRange(
+            @RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
+            @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) {
+        List<Object[]> orders = service.findOrdersByOrderDateRange(startDate, endDate);
+        return orders.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(orders);
+    }
+
+    @GetMapping("/employee/{id}")
+    public List<Object[]> getOrdersByEmployee(@PathVariable Long id) {
+        return service.findOrdersByEmployee(id);
     }
 }

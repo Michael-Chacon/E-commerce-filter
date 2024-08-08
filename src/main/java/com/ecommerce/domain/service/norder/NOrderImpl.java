@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -58,5 +59,25 @@ public class NOrderImpl implements INOrder {
             repository.delete(nOrder);
         });
         return nOrderOpt;
+    }
+
+    // obtener pedido por rango de fecha
+    @Transactional(readOnly = true)
+    @Override
+    public List<Object[]> findOrdersByOrderDateRange(Date startDate, Date endDate) {
+        return repository.findOrdersByOrderDateRange(startDate, endDate);
+    }
+
+    // Obtener pedidos por estados
+    @Transactional(readOnly = true)
+    @Override
+    public List<Object[]> findByStatus(Long statusId) {
+        return repository.findOrderDataByStatusId(statusId);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<Object[]> findOrdersByEmployee(Long id) {
+        return repository.findOrdersByEmployee(id);
     }
 }
