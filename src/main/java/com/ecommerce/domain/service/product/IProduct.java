@@ -11,4 +11,9 @@ public interface IProduct {
     Product save(Product product);
     Optional<Product> update(Long id, Product product);
     Optional<Product> delete(Long id);
+    //    Metodo para filtrar producto por gama
+    List<Object[]> findProductByRange(Long rangeId);
+
+    //    Método para filtrar producto por bajo stock
+    List<Object[]> findProductByStock(Integer threshold);
 }

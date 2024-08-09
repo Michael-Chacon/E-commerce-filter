@@ -57,4 +57,24 @@ public class ProductController {
         return ResponseEntity.notFound().build();
     }
 
+    //    Buscar por gama
+    @GetMapping("by-range/{rangeId}")
+    public ResponseEntity<List<Object[]>> findByRange(@PathVariable Long rangeId) {
+        List<Object[]> products = service.findProductByRange(rangeId);
+        if (products.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(products);
+    }
+
+    //    Buscar por stock
+    @GetMapping("by-low-stock/{threshold}")
+    public ResponseEntity<List<Object[]>> findByLowStock(@PathVariable Integer threshold) {
+        List<Object[]> productStock = service.findProductByStock(threshold);
+        if (productStock.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(productStock);
+    }
+
 }

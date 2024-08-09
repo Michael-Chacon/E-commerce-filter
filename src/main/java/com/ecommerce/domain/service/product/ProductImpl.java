@@ -61,4 +61,18 @@ public class ProductImpl implements IProduct{
         });
         return productOpt;
     }
+
+    //    Buscar por gama
+    @Transactional(readOnly = true)
+    @Override
+    public List<Object[]> findProductByRange(Long rangeId) {
+        return repository.findProductByRangeId(rangeId);
+    }
+
+    //  Buscar por bajo stock
+    @Transactional(readOnly = true)
+    @Override
+    public List<Object[]> findProductByStock(Integer threshold) {
+        return repository.findProductByStockQuantity(threshold);
+    }
 }
