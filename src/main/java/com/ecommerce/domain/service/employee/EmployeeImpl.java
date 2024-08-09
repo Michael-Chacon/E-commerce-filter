@@ -55,4 +55,10 @@ public class EmployeeImpl implements IEmployee {
         getEmployee.ifPresent(repository::delete);
         return getEmployee;
     }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<Object[]> findByOffice(Long officeId) {
+        return repository.findByOfficeId(officeId);
+    }
 }

@@ -10,4 +10,7 @@ public interface IEmployee {
     Employee save(Employee employee);
     Optional<Employee> update(Long id, Employee employee);
     Optional<Employee> delete(Long id);
+    //    Metodo para obtener empleados por oficina
+    List<Object[]> findByOffice(Long officeId);
+
 }

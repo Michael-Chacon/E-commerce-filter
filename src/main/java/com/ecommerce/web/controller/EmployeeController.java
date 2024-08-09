@@ -54,4 +54,14 @@ public class EmployeeController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/by-office/{id}")
+    public ResponseEntity<List<Object[]>> findByOffice(@PathVariable Long id){
+        List<Object[]> employees = service.findByOffice(id);
+        if(employees.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(employees);
+    }
+
 }
