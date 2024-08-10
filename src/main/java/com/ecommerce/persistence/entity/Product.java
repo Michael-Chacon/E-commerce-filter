@@ -3,6 +3,7 @@ package com.ecommerce.persistence.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -13,24 +14,30 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     private String name;
 
+    @NotBlank
     @Column(name = "stock_quantity")
     private Integer stockQuantity;
 
+    @NotBlank
     @Column(name = "sale_price")
     private Integer salePrice;
 
 //    @Column(name = "supplier_price")
 //    private Integer supplierPrice;
 
+    @NotBlank
     @Column(name = "product_description")
     private String productDescription;
 
+    @NotBlank
     private String dimensions;
 
 //    Llaves foraneas
 
+    @NotBlank
     @ManyToOne
     @JoinColumn(name = "range_code")
 //    @JsonBackReference

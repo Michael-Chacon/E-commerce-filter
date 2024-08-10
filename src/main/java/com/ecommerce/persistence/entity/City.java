@@ -2,6 +2,8 @@ package com.ecommerce.persistence.entity;
 
 import jakarta.persistence.*;
 
+import javax.validation.constraints.NotBlank;
+
 
 @Entity
 @Table(name = "city")
@@ -10,6 +12,7 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(name = "name", length = 30, nullable = false)
     private String name;
 

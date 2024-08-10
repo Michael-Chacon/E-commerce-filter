@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,13 +33,13 @@ public class CityController {
     }
 
     @PostMapping
-    public ResponseEntity<City> save(@RequestBody City city) {
+    public ResponseEntity<City> save(@NotBlank @RequestBody City city) {
         City data = service.save(city);
         return ResponseEntity.status(HttpStatus.CREATED).body(data);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<City> update(@PathVariable Long id, @RequestBody City city) {
+    public ResponseEntity<City> update(@PathVariable Long id, @NotBlank @RequestBody City city) {
         Optional<City> data = service.update(id, city);
         if (data.isPresent()) {
             return ResponseEntity.status(HttpStatus.CREATED).body(data.orElseThrow());

@@ -1,6 +1,8 @@
 package com.ecommerce.persistence.entity;
 
 import jakarta.persistence.*;
+
+import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +12,8 @@ public class Office {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
+    @NotBlank
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_code_o", nullable = false)
     private Address address;

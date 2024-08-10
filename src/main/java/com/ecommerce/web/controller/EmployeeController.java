@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,13 +33,13 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public ResponseEntity<Employee> save(@RequestBody Employee employee) {
+    public ResponseEntity<Employee> save(@NotBlank @RequestBody Employee employee) {
         Employee data = service.save(employee);
         return ResponseEntity.status(HttpStatus.CREATED).body(data);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Employee> update(@PathVariable Long id, @RequestBody Employee employee) {
+    public ResponseEntity<Employee> update(@PathVariable Long id, @NotBlank @RequestBody Employee employee) {
         Optional<Employee> data = service.update(id, employee);
         if (data.isPresent()) {
             return ResponseEntity.status(HttpStatus.CREATED).body(data.orElseThrow());

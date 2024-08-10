@@ -2,6 +2,8 @@ package com.ecommerce.persistence.entity;
 
 import jakarta.persistence.*;
 
+import javax.validation.constraints.NotBlank;
+
 @Entity
 @Table(name = "phones")
 public class Phone {
@@ -10,12 +12,15 @@ public class Phone {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     private Integer number;
 
+    @NotBlank
     @ManyToOne
     @JoinColumn(name = "customer_code_ph")
     private Customer customerCodePh;
 
+    @NotBlank
     @ManyToOne
     @JoinColumn(name = "office_code_ph")
     private Office officeCodePh;

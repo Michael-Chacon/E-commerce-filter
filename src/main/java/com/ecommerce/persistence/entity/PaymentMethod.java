@@ -1,6 +1,8 @@
 package com.ecommerce.persistence.entity;
 
 import jakarta.persistence.*;
+
+import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,6 +13,7 @@ public class PaymentMethod {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(name = "method_name", length = 50)
     private String methodName;
 

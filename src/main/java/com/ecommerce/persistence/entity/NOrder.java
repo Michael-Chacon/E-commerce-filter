@@ -3,6 +3,7 @@ package com.ecommerce.persistence.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.List;
 
@@ -14,24 +15,29 @@ public class NOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(name = "order_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "UTC")
     private Date orderDate;
 
+    @NotBlank
     @Column(name = "expected_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "UTC")
     private Date expectedDate;
 
+    @NotBlank
     @Column(name = "delivery_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "UTC")
     private Date deliveryDate;
 
     private String comment;
 
+    @NotBlank
     @ManyToOne
     @JoinColumn(name = "customer_code_or")
     private Customer customerCodeOr;
 
+    @NotBlank
     @ManyToOne
     @JoinColumn(name = "status_code_or")
     private Status statusCodeOr;

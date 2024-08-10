@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,13 +33,13 @@ public class AddressController {
     }
 
     @PostMapping
-    public ResponseEntity<Address> save(@RequestBody Address address) {
+    public ResponseEntity<Address> save(@NotBlank @RequestBody Address address) {
         Address data = service.save(address);
         return ResponseEntity.status(HttpStatus.CREATED).body(data);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Address> update(@PathVariable Long id, @RequestBody Address address) {
+    public ResponseEntity<Address> update(@PathVariable Long id, @NotBlank @RequestBody Address address) {
         Optional<Address> data = service.update(id, address);
         if (data.isPresent()) {
             return ResponseEntity.status(HttpStatus.CREATED).body(data.orElseThrow());

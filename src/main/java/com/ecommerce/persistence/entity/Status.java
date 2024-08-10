@@ -2,6 +2,7 @@ package com.ecommerce.persistence.entity;
 
 import jakarta.persistence.*;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Entity
@@ -12,6 +13,7 @@ public class Status {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty(message = "{NotEmpty.catalog.name}")
     @Column(name = "status_name")
     private String statusName;
 

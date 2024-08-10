@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,13 +33,13 @@ public class PaymentController {
     }
 
     @PostMapping
-    public ResponseEntity<Payment> save(@RequestBody Payment payment) {
+    public ResponseEntity<Payment> save(@NotBlank @RequestBody Payment payment) {
         Payment data = service.save(payment);
         return ResponseEntity.status(HttpStatus.CREATED).body(data);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Payment> update(@PathVariable Long id, @RequestBody Payment payment) {
+    public ResponseEntity<Payment> update(@PathVariable Long id, @NotBlank @RequestBody Payment payment) {
         Optional<Payment> data = service.update(id, payment);
         if (data.isPresent()) {
             return ResponseEntity.status(HttpStatus.CREATED).body(data.orElseThrow());

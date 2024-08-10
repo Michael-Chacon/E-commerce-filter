@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,13 +33,13 @@ public class OrderDetailController {
     }
 
     @PostMapping
-    public ResponseEntity<OrderDetail> save(@RequestBody OrderDetail orderDetail) {
+    public ResponseEntity<OrderDetail> save(@NotBlank @RequestBody OrderDetail orderDetail) {
         OrderDetail orderDetailNew = service.save(orderDetail);
         return ResponseEntity.status(HttpStatus.CREATED).body(orderDetailNew);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<OrderDetail> update(@PathVariable Long id, @RequestBody OrderDetail orderDetail) {
+    public ResponseEntity<OrderDetail> update(@PathVariable Long id, @NotBlank @RequestBody OrderDetail orderDetail) {
         Optional<OrderDetail> orderDetailOpt = service.update(id,orderDetail);
         if (orderDetailOpt.isPresent()) {
             return ResponseEntity.status(HttpStatus.CREATED).body(orderDetailOpt.orElseThrow());

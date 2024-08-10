@@ -2,6 +2,8 @@ package com.ecommerce.persistence.entity;
 
 import jakarta.persistence.*;
 
+import javax.validation.constraints.NotBlank;
+
 @Entity
 @Table(name = "order_detail")
 public class OrderDetail {
@@ -10,8 +12,10 @@ public class OrderDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     private Integer quantity;
 
+    @NotBlank
     @Column(name = "unit_price")
     private Integer unitPrice;
 
@@ -19,10 +23,12 @@ public class OrderDetail {
 //    private Integer lineNumber;
 
 //    Revisarrrrrrrrrrr
+    @NotBlank
     @ManyToOne
     @JoinColumn(name = "product_id_order")
     private Product productIdOrder;
 
+    @NotBlank
     @ManyToOne
     @JoinColumn(name = "order_id_product")
     private NOrder orderIdProduct;

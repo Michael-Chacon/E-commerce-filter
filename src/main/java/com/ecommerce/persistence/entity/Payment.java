@@ -2,6 +2,8 @@ package com.ecommerce.persistence.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Entity
@@ -11,17 +13,21 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(name = "payment_date", nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "UTC")
     private Date paymentDate;
 
+    @NotBlank
     @Column(name = "total", nullable = false)
     private Double total;
 
+    @NotBlank
     @ManyToOne
     @JoinColumn(name = "payment_method_code")
         private PaymentMethod paymentMethod;
 
+    @NotBlank
     @ManyToOne
     @JoinColumn(name = "customer_code_pa")
     private Customer customer;

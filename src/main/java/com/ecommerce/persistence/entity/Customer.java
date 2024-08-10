@@ -1,6 +1,8 @@
 package com.ecommerce.persistence.entity;
 
 import jakarta.persistence.*;
+
+import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,26 +13,32 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(name = "first_name", length = 50)
     private String firstName;
 
+    @NotBlank
     @Column(name = "last_name1", length = 30)
     private String lastName1;
 
     @Column(name = "last_name2", length = 30)
     private String lastName2;
 
+    @NotBlank
     @Column(name = "email", length = 50)
     private String email;
 
+    @NotBlank
     @ManyToOne
     @JoinColumn(name = "city_code_c")
     private City city;
 
+    @NotBlank
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_code_c")
     private Address address;
 
+    @NotBlank
     @ManyToOne
     @JoinColumn(name = "sales_rep_employee_code")
     private Employee salesRep;

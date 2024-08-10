@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,13 +32,13 @@ public class ProductRangeController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductRange> save(@RequestBody ProductRange productRange) {
+    public ResponseEntity<ProductRange> save(@NotBlank @RequestBody ProductRange productRange) {
         ProductRange productRangeNew = service.save(productRange);
         return ResponseEntity.status(HttpStatus.CREATED).body(productRangeNew);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductRange> update(@PathVariable Long id, @RequestBody ProductRange productRange) {
+    public ResponseEntity<ProductRange> update(@PathVariable Long id, @NotBlank @RequestBody ProductRange productRange) {
         Optional<ProductRange> productRangeOpt = service.update(id, productRange);
         if (productRangeOpt.isPresent()) {
             return ResponseEntity.status(HttpStatus.CREATED).body(productRangeOpt.orElseThrow());

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -33,13 +34,13 @@ public class NOrderController {
     }
 
     @PostMapping
-    public ResponseEntity<NOrder> save(@RequestBody NOrder nOrder){
+    public ResponseEntity<NOrder> save(@NotBlank @RequestBody NOrder nOrder){
         NOrder nOrderNew = service.save(nOrder);
         return ResponseEntity.status(HttpStatus.CREATED).body(nOrderNew);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<NOrder> update(@PathVariable Long id, @RequestBody NOrder nOrder){
+    public ResponseEntity<NOrder> update(@PathVariable Long id, @NotBlank @RequestBody NOrder nOrder){
         Optional<NOrder> orderOpt = service.update(id, nOrder);
         if(orderOpt.isPresent()){
             return ResponseEntity.status(HttpStatus.CREATED).body(orderOpt.orElseThrow());

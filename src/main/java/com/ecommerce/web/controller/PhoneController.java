@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,13 +33,13 @@ public class PhoneController {
     }
 
     @PostMapping
-    public ResponseEntity<Phone> save(@RequestBody Phone phone){
+    public ResponseEntity<Phone> save(@NotBlank @RequestBody Phone phone){
         Phone saved = service.save(phone);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Phone> update(@PathVariable Long id, @RequestBody Phone phone){
+    public ResponseEntity<Phone> update(@PathVariable Long id, @NotBlank @RequestBody Phone phone){
         Optional<Phone> phoneOpt = service.update(id,phone);
         if(phoneOpt.isPresent()){
             return ResponseEntity.status(HttpStatus.CREATED).body(phoneOpt.orElseThrow());

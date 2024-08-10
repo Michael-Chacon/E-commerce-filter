@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,13 +33,13 @@ public class OfficeController {
     }
 
     @PostMapping
-    public ResponseEntity<Office> save(@RequestBody Office office) {
+    public ResponseEntity<Office> save(@NotBlank @RequestBody Office office) {
         Office data = service.save(office);
         return ResponseEntity.status(HttpStatus.CREATED).body(data);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Office> update(@PathVariable Long id, @RequestBody Office office) {
+    public ResponseEntity<Office> update(@PathVariable Long id, @NotBlank @RequestBody Office office) {
         Optional<Office> data = service.update(id, office);
         if (data.isPresent()) {
             return ResponseEntity.status(HttpStatus.CREATED).body(data.orElseThrow());

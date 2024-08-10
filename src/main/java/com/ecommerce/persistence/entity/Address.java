@@ -1,6 +1,8 @@
 package com.ecommerce.persistence.entity;
 
 import jakarta.persistence.*;
+
+import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,12 +13,15 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(name = "address_line1", length = 50)
     private String addressLine1;
 
+//    Esta puede estar en blanco
     @Column(name = "address_line2", length = 50)
     private String addressLine2;
 
+    @NotBlank
     @ManyToOne
     @JoinColumn(name = "city_code_d")
     private City city;
