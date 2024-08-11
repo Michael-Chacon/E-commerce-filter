@@ -63,3 +63,8 @@ INSERT INTO order_detail (product_id_order, order_id_product, quantity, unit_pri
 INSERT INTO order_detail (product_id_order, order_id_product, quantity, unit_price) VALUES (2, 2, 1, 150.00);
 INSERT INTO order_detail (product_id_order, order_id_product, quantity, unit_price) VALUES (3, 3, 3, 75.00);
 
+INSERT INTO users (enabled, password, username) VALUES (1, "$2a$10$8bZuKCxVocfyuJBSYr/13etINGRhMjYGizlPzG3yDnTqzAVqTFTbG", 'duvan'), (1, "$2a$10$8bZuKCxVocfyuJBSYr/13etINGRhMjYGizlPzG3yDnTqzAVqTFTbG", 'alexis'),(1, "$2a$10$8bZuKCxVocfyuJBSYr/13etINGRhMjYGizlPzG3yDnTqzAVqTFTbG", 'maritza');
+INSERT INTO roles (name) VALUES ('ROLE_USER'),('ROLE_ADMIN'),('ROLE_MANAGER');
+INSERT INTO users_roles (user_id, role_id) VALUES (1, 1),(1, 2);
+INSERT INTO users_roles (user_id, role_id) VALUES (2, 1),(2, 3),(2, 2);
+INSERT INTO users_roles (user_id, role_id) VALUES (3, 2),(3, 1);
